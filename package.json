@@ -1,0 +1,23 @@
+{
+	"name": "api-rest-star-wars-node-e-typescript",
+	"version": "1.0.0",
+	"description": "Desenvolver uma API backend que permita a criação, gerenciamento e visualização de uma galáxia inspirada em Star Wars, incluindo planetas, sistemas estelares, personagens e naves espaciais.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": {
+		"name": "Daiana de Paula",
+		"email": "daianaadepaula1@gmail.com",
+		"url": "https://github.com/daianaadepaula"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"@types/express": "^4.17.21",
+		"typescript": "^5.5.4"
+	},
+	"dependencies": {
+		"express": "^4.19.2"
+	}
+}
