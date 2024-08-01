@@ -1,0 +1,42 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "API de criação do mundo de Star Wars",
+		"description": "API Rest que permite a criação, gerenciamento e visualização de uma galáxia inspirada em Star Wars, incluindo planetas, sistemas estelares, personagens e naves espaciais.",
+		"contact": {
+			"email": "daianaadepaula1@gmail.com"
+		},
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3333/v1",
+			"description": "API de teste"
+		}
+	],
+	"paths": {
+		"/teste": {
+			"post": {
+				"summary": "Teste",
+				"description": "Descrição da rota de teste",
+				"tags": [
+					"Teste"
+				],
+				"requestBody": {
+					"content": {
+						"aplication/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Teste"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Teste": {}
+		}
+	}
+}
