@@ -15,18 +15,18 @@
 		}
 	],
 	"paths": {
-		"/teste": {
+		"/planets": {
 			"post": {
-				"summary": "Teste",
-				"description": "Descrição da rota de teste",
+				"summary": "Planets",
+				"description": "Cria um novo planeta.",
 				"tags": [
-					"Teste"
+					"Planets"
 				],
 				"requestBody": {
 					"content": {
 						"aplication/json": {
 							"schema": {
-								"$ref": "#/components/schemas/Teste"
+								"$ref": "#/components/schemas/Planets"
 							}
 						}
 					}
@@ -36,7 +36,7 @@
 	},
 	"components": {
 		"schemas": {
-			"Teste": {}
+			"Planets": {}
 		}
 	}
 }
