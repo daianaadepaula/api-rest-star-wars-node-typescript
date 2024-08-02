@@ -8,6 +8,11 @@ const router = Router();
 
 router.use('/', baseRoutes);
 
-router.post('/planets', PlanetsController.create);
+router.post(
+	'/planets',
+	PlanetsController.createBodyValidator,
+	PlanetsController.createQueryValidator,
+	PlanetsController.create,
+);
 
 export { router };
