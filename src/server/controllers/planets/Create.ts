@@ -3,25 +3,37 @@ import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 
 interface IPlanet {
-	name: string;
+	nome: string;
+	clima: string;
+	terreno: string;
+	populacao: number;
 }
 
 const bodyValidation: yup.ObjectSchema<IPlanet> = yup.object().shape({
-	name: yup.string().required().min(3),
+	nome: yup.string().required().min(3),
+	clima: yup.string().required().min(3),
+	terreno: yup.string().required().min(3),
+	populacao: yup.number().required().positive().integer(),
 });
 
 export const create = async (req: Request<{}, {}, IPlanet>, res: Response) => {
 	let validateData: IPlanet | undefined = undefined;
 
 	try {
-		validateData = await bodyValidation.validate(req.body);
-	} catch (error) {
-		const yupError = error as yup.ValidationError;
+		validateData = await bodyValidation.validate(req.body, {
+			abortEarly: false,
+		});
+	} catch (err) {
+		const yupError = err as yup.ValidationError;
+		const errors: Record<string, string> = {};
 
-		return res.json({
-			errors: {
-				default: yupError.message,
-			},
+		yupError.inner.forEach((error) => {
+			if (!error.path) return;
+			errors[error.path] = error.message;
+		});
+
+		return res.status(StatusCodes.BAD_REQUEST).json({
+			errors: errors,
 		});
 	}
 
