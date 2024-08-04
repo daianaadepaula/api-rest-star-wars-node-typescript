@@ -17,7 +17,7 @@
 	"paths": {
 		"/planets": {
 			"post": {
-				"summary": "Planets",
+				"summary": "Cadastro de planetas",
 				"description": "Cria um novo planeta.",
 				"tags": [
 					"Planets"
@@ -27,6 +27,16 @@
 						"aplication/json": {
 							"schema": {
 								"$ref": "#/components/schemas/Planets"
+							},
+							"examples": {
+								"planets": {
+									"value": {
+										"nome": "Abafar",
+										"clima": "Quente",
+										"terreno": "baldios sem fim e cobertos de sal",
+										"populacao": "300"
+									}
+								}
 							}
 						}
 					}
@@ -36,7 +46,23 @@
 	},
 	"components": {
 		"schemas": {
-			"Planets": {}
+			"Planets": {
+				"type": "object",
+				"properties": {
+					"nome": {
+						"type": "string"
+					},
+					"clima": {
+						"type": "string"
+					},
+					"terreno": {
+						"type": "string"
+					},
+					"populacao": {
+						"type": "number"
+					}
+				}
+			}
 		}
 	}
 }
