@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import * as yup from 'yup';
 
+import { StatusCodes } from 'http-status-codes';
 import { validation } from '../../shared/middleware';
 
 interface IPlanet {
@@ -8,10 +9,6 @@ interface IPlanet {
 	clima: string;
 	terreno: string;
 	populacao: number;
-}
-
-interface IFilter {
-	filter?: string;
 }
 
 export const createValidation = validation((getSchema) => ({
@@ -23,15 +20,12 @@ export const createValidation = validation((getSchema) => ({
 			populacao: yup.number().required().positive().integer(),
 		}),
 	),
-	query: getSchema<IFilter>(
-		yup.object().shape({
-			filter: yup.string().required().min(3),
-		}),
-	),
 }));
 
 export const create = async (req: Request<{}, {}, IPlanet>, res: Response) => {
 	console.log(req.body);
 
-	return res.send('Create!');
+	return res
+		.status(StatusCodes.INTERNAL_SERVER_ERROR)
+		.send('Não implementado!');
 };

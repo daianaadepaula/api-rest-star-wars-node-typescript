@@ -25,6 +25,9 @@
 			"complexity": {
 				"noBannedTypes": "off",
 				"noForEach": "off"
+			},
+			"suspicious": {
+				"noExplicitAny": "warn"
 			}
 		}
 	}

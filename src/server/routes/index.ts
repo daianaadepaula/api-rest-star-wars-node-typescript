@@ -7,6 +7,12 @@ const router = Router();
 
 router.use('/', baseRoutes);
 
+router.get(
+	'/planets',
+	PlanetsController.getAllValidation,
+	PlanetsController.getAll,
+);
+
 router.post(
 	'/planets',
 	PlanetsController.createValidation,
