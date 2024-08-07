@@ -4,7 +4,7 @@
 	"description": "Desenvolver uma API backend que permita a criação, gerenciamento e visualização de uma galáxia inspirada em Star Wars, incluindo planetas, sistemas estelares, personagens e naves espaciais.",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest",
 		"dev": "tsx watch ./src/index.ts"
 	},
 	"keywords": [],
@@ -17,15 +17,20 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
 		"@types/express": "^4.17.21",
+		"@types/supertest": "^6.0.2",
 		"@types/swagger-ui-express": "^4.1.6",
+		"supertest": "^7.0.0",
 		"tsx": "^4.16.2",
 		"typescript": "^5.5.4"
 	},
 	"dependencies": {
+		"@types/jest": "^29.5.12",
 		"dotenv": "^16.4.5",
 		"express": "^4.19.2",
 		"http-status-codes": "^2.3.0",
+		"jest": "^29.7.0",
 		"swagger-ui-express": "^5.0.1",
+		"ts-jest": "^29.2.4",
 		"yup": "^1.4.0"
 	}
 }
