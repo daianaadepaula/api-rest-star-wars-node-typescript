@@ -42,8 +42,8 @@
 					}
 				},
 				"responses": {
-					"501": {
-						"description": "INTERNAL_SERVER_ERROR"
+					"500": {
+						"description": "Não implementado!"
 					},
 					"200": {
 						"description": "OK",

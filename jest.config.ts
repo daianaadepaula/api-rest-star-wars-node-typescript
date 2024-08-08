@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from 'jest';
+import { Config } from 'jest';
 
 const config: Config = {
 	// All imported modules in your tests should be mocked automatically
@@ -167,9 +167,7 @@ const config: Config = {
 	// testRunner: "jest-circus/runner",
 
 	// A map from regular expressions to paths to transformers
-	transform: {
-		'^.+\\.(ts|tsx)$': 'ts-jest',
-	},
+	transform: { '^.+\\.(ts|tsx)$': 'ts-jest' },
 
 	// An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
 	// transformIgnorePatterns: [
