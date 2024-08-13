@@ -1,9 +1,17 @@
-import express, { json } from 'express';
+import express from 'express';
+import 'dotenv/config';
+
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocs from '../swagger.json';
+
+import './shared/services/TranslateYup';
 import { router } from './routes';
 
 const server = express();
 
-server.use(json());
-server.use(router);
+server.use(express.json());
+server.use('/v1', router);
+
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 export { server };

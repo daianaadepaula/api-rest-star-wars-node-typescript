@@ -1,19 +1,39 @@
 import { Router } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import packageJson from '../../../package.json';
+import { PlanetsController } from './../controllers';
+import { baseRoutes } from './base.route';
 
 const router = Router();
 
-router.get('/', (_, res) => {
-	const { name, version, description, author } = packageJson;
+router.use('/', baseRoutes);
 
-	res.status(200).json({ name, version, description, author });
-});
+router.get(
+	'/planets',
+	PlanetsController.getAllValidation,
+	PlanetsController.getAll,
+);
 
-router.post('/', (req, res) => {
-	console.log(req.body);
+router.post(
+	'/planets',
+	PlanetsController.createValidation,
+	PlanetsController.create,
+);
 
-	return res.status(StatusCodes.ACCEPTED).json(req.body);
-});
+router.get(
+	'/planets/:id',
+	PlanetsController.getByIdValidation,
+	PlanetsController.getById,
+);
+
+router.put(
+	'/planets/:id',
+	PlanetsController.updateByIdValidation,
+	PlanetsController.updateById,
+);
+
+router.delete(
+	'/planets/:id',
+	PlanetsController.deleteByIdValidation,
+	PlanetsController.deleteById,
+);
 
 export { router };

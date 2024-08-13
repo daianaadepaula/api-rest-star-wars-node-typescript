@@ -1,0 +1,84 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "API de criação do mundo de Star Wars",
+		"description": "API Rest que permite a criação, gerenciamento e visualização de uma galáxia inspirada em Star Wars, incluindo planetas, sistemas estelares, personagens e naves espaciais.",
+		"contact": {
+			"email": "daianaadepaula1@gmail.com"
+		},
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3333/v1",
+			"description": "API de teste"
+		}
+	],
+	"paths": {
+		"/planets": {
+			"post": {
+				"summary": "Cadastro de planetas",
+				"description": "Cria um novo planeta.",
+				"tags": [
+					"Planets"
+				],
+				"requestBody": {
+					"content": {
+						"aplication/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Planets"
+							},
+							"examples": {
+								"planets": {
+									"value": {
+										"nome": "Abafar",
+										"clima": "Quente",
+										"terreno": "baldios sem fim e cobertos de sal",
+										"populacao": "300"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"500": {
+						"description": "Não implementado!"
+					},
+					"200": {
+						"description": "OK",
+						"content": {
+							"aplication/json": {
+								"schema": {
+									"type": "object",
+									"$ref": "#/components/schemas/Planets"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Planets": {
+				"type": "object",
+				"properties": {
+					"nome": {
+						"type": "string"
+					},
+					"clima": {
+						"type": "string"
+					},
+					"terreno": {
+						"type": "string"
+					},
+					"populacao": {
+						"type": "number"
+					}
+				}
+			}
+		}
+	}
+}
